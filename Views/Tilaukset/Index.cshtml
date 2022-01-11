@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TilausWebApp.Models.Tilaukset>
+@{
+    ViewBag.Title = "Index";
+}
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            $(".showOrderId").click(function () {
+                var orderId = $(this).data("orderid");
+                alert(orderId);
+            });
+        });
+
+    </script>
+}
+<h3>Tilauksia @Model.Count() kappaletta</h3>
+<p>
+    @Html.ActionLink("Luo uusi", "Create")
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Tilaus ID</th>
+            <th>Asiakas ID</th>
+            <th>Toimitusosoite</th>
+            <th>Postinumero</th>
+            <th>Tilauspvm</th>
+            <th>Toimituspvm</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (TilausWebApp.Models.Tilaukset ord in Model)
+        {
+            <tr>
+                <td class="showOrderId" data-TilausID="@ord.TilausID">@ord.TilausID</td>
+               
+                <td>@ord.AsiakasID</td>
+                <td>@ord.Toimitusosoite</td>
+                <td>@ord.Postinumero</td>
+                <td>@ord.Tilauspvm</td>
+                <td>@ord.Toimituspvm</td>
+                <td>@Html.ActionLink("Muokkaa", "Edit", new { id = ord.TilausID }, new { @class = "btn btn-primary btn-large" })</td>
+                <td>@Html.ActionLink("Poista", "Delete", new { id = ord.TilausID }, new { @class = "btn btn-primary btn-large" })</td>
+            </tr>
+        }
+    </tbody>
+    
+</table>
+
+
+

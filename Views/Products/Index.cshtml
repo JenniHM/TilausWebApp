@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TilausWebApp.Models.Tuotteet>
+@{
+    ViewBag.Title = "Index";
+}
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            $(".showProductId").click(function () {     
+                var productId = $(this).data("productid");
+                alert(productId);
+            });
+        });
+        
+    </script>
+}
+<h3>Tuotteita @Model.Count() kappaletta</h3>
+<p>@Html.ActionLink("Lisää uusi tuote", "Create")</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Tuote ID</th>
+            <th>Tuotteen nimi</th>
+            <th>A-Hinta</th>
+            <th>Kuva</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (TilausWebApp.Models.Tuotteet tuot in Model)
+        {
+            <tr>
+                <td class="showProductId" data-TuoteID="@tuot.TuoteID">@tuot.TuoteID</td>
+                <td>@tuot.TuoteID</td>
+                <td>@tuot.Nimi</td>
+                <td>@tuot.Ahinta</td>
+                <td>@tuot.Kuva</td>
+                <td>@Html.ActionLink("Muokkaa", "Edit", new { id = tuot.TuoteID }, new { @class = "btn btn-primary btn-large" })</td>
+                <td>@Html.ActionLink("Poista", "Delete", new { id = tuot.TuoteID }, new { @class = "btn btn-primary btn-large" })</td>
+
+            </tr>
+        }
+    </tbody>
+    
+</table>
+
+
+
+

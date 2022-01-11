@@ -1,0 +1,31 @@
+﻿@model IEnumerable<TilausWebApp.Models.Henkilot>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Henkilökunta</h2>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Henkilo_id)</th>
+        <th>@Html.DisplayNameFor(model => model.Etunimi)</th>
+        <th>@Html.DisplayNameFor(model => model.Sukunimi)</th>
+        <th>@Html.DisplayNameFor(model => model.Osoite)</th>
+        <th>@Html.DisplayNameFor(model => model.Esimies)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@Html.DisplayFor(modelItem => item.Henkilo_id)</td>
+    <td>@Html.DisplayFor(modelItem => item.Etunimi)</td>
+    <td>@Html.DisplayFor(modelItem => item.Sukunimi)</td>
+    <td>@Html.DisplayFor(modelItem => item.Osoite)</td>
+    <td>@Html.DisplayFor(modelItem => item.Esimies)</td>
+   
+</tr>
+    }
+
+</table>
