@@ -8,11 +8,12 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">TilausDB</a>
-            
+            <a class="nav-item">@ViewBag.LoggedStatus</a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -60,7 +61,7 @@
             </div>
         </div>
     </nav>
-   
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -72,5 +73,9 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script src="https://bootswatch.com/_vendor/popper.js/dist/umd/popper.min.js">
+    <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.min.js">
+
 </body>
 </html>

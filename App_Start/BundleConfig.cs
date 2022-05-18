@@ -26,9 +26,9 @@ namespace TilausWebApp
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
+           
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
                 "~/Scripts/bootstrap.js"));
-
         }
     }
 }
